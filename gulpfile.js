@@ -66,15 +66,15 @@ gulp.task('clean', function () {
   return del(['build/*']);
 });
 
-gulp.task('fonts', function() {
+gulp.task('fonts', ['clean'], function() {
   return gulp.src('./source/fonts/**/*').pipe(gulp.dest('build/fonts'));
 });
 
-gulp.task('images', function() {
+gulp.task('images', ['clean'], function() {
   return gulp.src('./source/images/**/*').pipe(gulp.dest('build/images'));
 });
 
-gulp.task('js', function() {
+gulp.task('js', ['clean'], function() {
   var config = readIndexYml();
   var libs = [
     './source/javascripts/lib/_energize.js',
@@ -100,7 +100,7 @@ gulp.task('js', function() {
     .pipe(gulp.dest('./build/javascripts'));
 });
 
-gulp.task('sass', function () {
+gulp.task('sass', ['clean'], function () {
   return gulp.src('./source/stylesheets/*.css.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(rename({ extname: ''}))
@@ -108,7 +108,7 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./build/stylesheets'));
 });
 
-gulp.task('highlightjs', function () {
+gulp.task('highlightjs', ['clean'], function () {
   var config = readIndexYml();
   var path = './node_modules/highlight.js/styles/' + config.highlight_theme + '.css';
   return gulp.src(path)
@@ -117,7 +117,7 @@ gulp.task('highlightjs', function () {
     .pipe(gulp.dest('./build/stylesheets'));
 });
 
-gulp.task('html', function () {
+gulp.task('html', ['clean'], function () {
   var data = getPageData();
   return gulp.src('./source/*.html')
   	.pipe(ejs(data).on('error', gutil.log))
