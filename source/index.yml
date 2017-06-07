@@ -1,18 +1,20 @@
-title: API Reference
+title: MailUp Rest API Reference
 
 language_tabs:
+  - http
   - bash
-  - ruby
-  - python
+  - C#
   - javascript
+  - Go
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://www.mailup.com/features/developer-platform/' target="_blank">Sign Up for a MailUp Developer Platform</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - main
-  - _errors
+  - introduction
+  - best_practices
+  - authentication
 
 search: true
 
